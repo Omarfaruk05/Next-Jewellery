@@ -38,6 +38,14 @@ const ProductSchema = new Schema(
       required: [true, "Please add product price"],
       trim: true,
     },
+    images: {
+      type: Array,
+      required: [true, "Images is required."],
+    },
+    // user: {
+    //   ref: User,
+    //   required: [true, "User Id is required."],
+    // },
   },
   {
     timestamps: true,

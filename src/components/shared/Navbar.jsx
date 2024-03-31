@@ -93,7 +93,7 @@ export const NavbarComponent = () => {
       </Navbar>
       <hr />
       <div>
-        <ul className="hidden my-2 md:flex gap-5 justify-center text-sm">
+        <ul className="hidden my-2 lg:flex gap-5 justify-center text-sm">
           <li className="cursor-pointer">Brands</li>
           <li className="cursor-pointer">The Edits</li>
           <li className="cursor-pointer">Earrings</li>

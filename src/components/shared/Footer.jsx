@@ -11,7 +11,7 @@ import {
 const Footer = () => {
   return (
     <div>
-      <div className="h-[1.5px] bg-gray-700 my-4"></div>
+      <div className="h-[1.5px] bg-gray-700 mb-4"></div>
       <div className="max-w-7xl mx-auto px-2">
         <div>
           <div className="md:flex md:gap-11 flex-wrap">
