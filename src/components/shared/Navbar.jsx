@@ -3,8 +3,16 @@
 import { Navbar } from "keep-react";
 import Link from "next/link";
 import { User, Heart, ShoppingBagOpen } from "phosphor-react";
+import { useEffect, useState } from "react";
+import AccountModal from "../Modals/AccountModal";
 
 export const NavbarComponent = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(!open);
+  };
+
   return (
     <div className="max-w-7xl mx-auto">
       <Navbar fluid={true} className="bg-[#F9F2E6]">
@@ -33,10 +41,10 @@ export const NavbarComponent = () => {
                   <option value="Nepal">Nepal</option>
                 </select>
               </div>
-              <Navbar.Link
-                icon={<User size={20} color="#444" />}
-                iconAnimation={false}
-              />
+              <div className="cursor-pointer">
+                <User onClick={handleOpen} size={20} color="#444" />
+                <AccountModal openCondition={open} />
+              </div>
               <Navbar.Link
                 icon={<Heart size={20} color="#444" />}
                 iconAnimation={false}
