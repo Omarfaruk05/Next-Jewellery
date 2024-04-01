@@ -1,3 +1,4 @@
+import { Button } from "keep-react";
 import Image from "next/image";
 
 const Product = ({ product }) => {
@@ -93,15 +94,15 @@ const Product = ({ product }) => {
           </div>
           {/* action buttons */}
           <div className="mt-12 flex gap-4 mx-6">
-            <button className="cursor-pointer w-full py-2 text-white text-sm rounded-full uppercase bg-green-700">
+            <Button className="cursor-pointer w-full py-2 text-white text-sm rounded-full uppercase bg-green-700">
               Call
-            </button>
-            <button className="cursor-pointer w-full py-2 text-white text-sm rounded-full uppercase bg-indigo-900">
+            </Button>
+            <Button className="cursor-pointer w-full py-2 text-white text-sm rounded-full uppercase bg-indigo-900">
               Chat
-            </button>
-            <button className="cursor-pointer w-full py-2 text-white text-sm rounded-full uppercase bg-gray-800">
+            </Button>
+            <Button className="cursor-pointer w-full py-2 text-white text-sm rounded-full uppercase bg-gray-800">
               share
-            </button>
+            </Button>
           </div>
         </div>
       </div>
