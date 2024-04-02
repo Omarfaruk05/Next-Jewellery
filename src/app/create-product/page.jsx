@@ -62,7 +62,7 @@ const CreateProductPage = () => {
     const stringifiedData = JSON.stringify(data);
     console.log(stringifiedData);
 
-    fetch("http://localhost:3000/api/products", {
+    fetch("https://next-jewellery.vercel.app/api/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
