@@ -1,17 +1,26 @@
 "use client";
 
-import { Navbar } from "keep-react";
+import { Avatar, Dropdown, Navbar } from "keep-react";
 import Link from "next/link";
-import { User, Heart, ShoppingBagOpen } from "phosphor-react";
-import { useEffect, useState } from "react";
+import {
+  User,
+  Heart,
+  ShoppingBagOpen,
+  UserCircle,
+  SignOut,
+} from "phosphor-react";
+import { useState } from "react";
 import AccountModal from "../Modals/AccountModal";
+import { signOut, useSession } from "next-auth/react";
 
 export const NavbarComponent = () => {
+  const { data: session } = useSession();
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
     setOpen(!open);
   };
+  const user = session?.user;
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -41,9 +50,41 @@ export const NavbarComponent = () => {
                   <option value="Nepal">Nepal</option>
                 </select>
               </div>
-              <div className="cursor-pointer">
-                <User onClick={handleOpen} size={20} color="#444" />
-                <AccountModal openCondition={open} />
+
+              <div>
+                {user?.email ? (
+                  <div className="cursor-pointer">
+                    <Dropdown
+                      action={
+                        <Avatar
+                          className="w-8 h-8"
+                          shape="circle"
+                          img={user?.image}
+                        />
+                      }
+                      actionClassName="border-none p-0 rounded-full"
+                    >
+                      <Dropdown.List>
+                        <Dropdown.Item className="rounded-md">
+                          <UserCircle size={24} />
+                          Account
+                        </Dropdown.Item>
+                        <Dropdown.Item
+                          onClick={() => signOut("google")}
+                          className="rounded-md"
+                        >
+                          <SignOut size={24} />
+                          Logout
+                        </Dropdown.Item>
+                      </Dropdown.List>
+                    </Dropdown>
+                  </div>
+                ) : (
+                  <div className="cursor-pointer">
+                    <User onClick={handleOpen} size={20} color="#444" />
+                    <AccountModal openCondition={open} />
+                  </div>
+                )}
               </div>
               <Navbar.Link
                 icon={<Heart size={20} color="#444" />}

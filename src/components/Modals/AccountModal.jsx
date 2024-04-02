@@ -2,7 +2,7 @@
 
 import { Button, Divider, Input, Modal } from "keep-react";
 import Image from "next/image";
-import { FacebookLogo, GooglePhotosLogo } from "phosphor-react";
+import { signIn } from "next-auth/react";
 import React, { useEffect, useState } from "react";
 
 const AccountModal = ({ openCondition }) => {
@@ -27,6 +27,7 @@ const AccountModal = ({ openCondition }) => {
             </h1>
             <div className="my-4 flex flex-col gap-3">
               <Button
+                onClick={() => signIn("facebook")}
                 className="rounded-full py-2 bg-[#F9F2E6] relative "
                 color="primary"
                 variant="outline"
@@ -41,6 +42,7 @@ const AccountModal = ({ openCondition }) => {
                 Sign in with Facebook
               </Button>
               <Button
+                onClick={() => signIn("google")}
                 className="rounded-full py-2 bg-[#F9F2E6] relative"
                 color="error"
                 variant="outline"
