@@ -136,6 +136,13 @@ export const NavbarComponent = () => {
                 linkName="Personalized"
                 className="p-2 rounded-md hover:bg-[#F9F2E6]"
               />
+              {user?.email && (
+                <Navbar.Link
+                  href="/create-product"
+                  linkName="Create Product"
+                  className="p-2 rounded-md hover:bg-[#F9F2E6]"
+                />
+              )}
             </Navbar.Container>
           </Navbar.Collapse>
         </Navbar.Container>
@@ -151,9 +158,11 @@ export const NavbarComponent = () => {
           <li className="cursor-pointer">Bracelets</li>
           <li className="cursor-pointer">Gifts</li>
           <li className="cursor-pointer">Personalized</li>
-          <Link href={"/create-product"} className="cursor-pointer">
-            Create Product
-          </Link>
+          {user?.email && (
+            <Link href={"/create-product"} className="cursor-pointer">
+              Create Product
+            </Link>
+          )}
         </ul>
       </div>
     </div>
