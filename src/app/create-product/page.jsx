@@ -11,7 +11,7 @@ import {
   Upload,
 } from "keep-react";
 import Image from "next/image";
-import { Info } from "phosphor-react";
+import { Info, CloudArrowUp } from "phosphor-react";
 import { useCallback, useEffect, useState } from "react";
 
 const CreateProductPage = () => {
@@ -162,13 +162,8 @@ const CreateProductPage = () => {
               <div className="md:w-1/2 mt-4 md:mt-0">
                 <Upload options={{ onDrop }}>
                   {!images ? (
-                    <Upload.Body className="border-2 border-dashed border-slate-800">
-                      <Image
-                        src="/import.png"
-                        alt="folder"
-                        height={200}
-                        width={200}
-                      />
+                    <Upload.Body className="border-2 border-dashed m-4 border-slate-800">
+                      <CloudArrowUp size={150} />
 
                       <Upload.Text>
                         <Typography
